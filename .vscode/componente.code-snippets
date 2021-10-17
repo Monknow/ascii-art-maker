@@ -1,0 +1,18 @@
+{
+	"Create Component": {
+		"scope": "javascript,typescript, typescript react",
+		"prefix": "compo",
+		"body": [
+			"import * as React from 'react';",
+			"import {FC} from 'react';",
+			"import styled from 'styled-components';",
+			"",
+			"const Styled${1:nombre} = styled.div``;",
+			"",
+			"export const ${1:nombre}: FC = () => {",
+			"    return <${Styled1:nombre}></${Styled1:nombre}>;",
+			"};"
+		],
+		"description": "Create a React Component"
+	}
+}
