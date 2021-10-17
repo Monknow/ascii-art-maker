@@ -15,7 +15,7 @@ const IndexPage: FC<PageProps> = ({location}) => {
 			<ShareHelmet
 				title="Ascii Art Maker"
 				description="Convert and transform images to ASCII characters art. The best ASCII Image converter"
-				urlImage={banner}
+				urlImage={`${location.origin}${banner}`}
 				url={location.href}
 			/>
 			<App />
