@@ -25,24 +25,22 @@ export const CopyAscii: FC<CopyAsciiProps> = ({ascii}) => {
 				success: "Copied to the Clipboard",
 				error: "An error ocurred while copying",
 			});
-		} else {
-			if (asciiRef.current) {
-				//Before we copy, we are going to select the text.
-				try {
-					const selection = window.getSelection();
-					const range = document.createRange();
-					range.selectNodeContents(asciiRef.current);
+		} else if (asciiRef.current && window) {
+			//Before we copy, we are going to select the text.
+			try {
+				const selection = window.getSelection();
+				const range = document.createRange();
+				range.selectNodeContents(asciiRef.current);
 
-					if (selection) {
-						selection.removeAllRanges();
-						selection.addRange(range);
-						document.execCommand("copy");
-						//add to clipboard.
-						toast.success("Copied to the Clipboard");
-					}
-				} catch {
-					toast.error("An error ocurred while copying");
+				if (selection) {
+					selection.removeAllRanges();
+					selection.addRange(range);
+					document.execCommand("copy");
+					//add to clipboard.
+					toast.success("Copied to the Clipboard");
 				}
+			} catch {
+				toast.error("An error ocurred while copying");
 			}
 		}
 	};
