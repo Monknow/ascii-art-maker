@@ -26,7 +26,7 @@ interface InputFileProps extends InputHTMLAttributes<HTMLInputElement> {
 	uploadedImages: string[];
 }
 
-const reader = new FileReader();
+const reader = globalThis?.window ? new FileReader() : null;
 
 export const InputFile: FC<InputFileProps> = ({liftImageSrc, uploadedImages}) => {
 	const [imageFile, setImageFile] = useState<File | null>(null);
@@ -36,7 +36,7 @@ export const InputFile: FC<InputFileProps> = ({liftImageSrc, uploadedImages}) =>
 	useEffect(() => {
 		let mounted = true;
 
-		if (mounted && imageFile) {
+		if (mounted && imageFile && reader) {
 			reader.onload = (data) => {
 				if (typeof data?.target?.result === "string") {
 					if (!uploadedImages.includes(data.target.result)) {
