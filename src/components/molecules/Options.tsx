@@ -5,7 +5,6 @@ import styled from "styled-components";
 import {Button} from "@components/atoms/Button";
 import {SliderInput} from "@components/atoms/SliderInput";
 import {Checkbox} from "@components/atoms/Checkbox";
-import {isTouchDevice} from "@functions/isTouchDevice";
 
 const StyledOptions = styled.form`
 	grid-area: options;
@@ -136,9 +135,8 @@ export const Options: FC<OptionsProps> = ({
 				name="brightness"
 				label="Brightness"
 			/>
-			{isTouchDevice() && (
-				<SliderInput min={2} max={50} step={1} value={zoom} liftState={liftZoom} name="zoom" label="Zoom" />
-			)}
+			<SliderInput min={2} max={50} step={1} value={zoom} liftState={liftZoom} name="zoom" label="Zoom" />
+
 			<InputGroup>
 				<Checkbox
 					name="negative"
