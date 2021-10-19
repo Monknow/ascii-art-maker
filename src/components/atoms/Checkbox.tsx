@@ -20,9 +20,9 @@ const StyledCheckbox = styled.label`
 	font-weight: 700;
 	margin-bottom: 16px;
 
-	flex-basis: 150px;
-
-	font-size: clamp(10px, 2vw, 14px);
+	label {
+		font-size: clamp(10px, 1vw, 14px);
+	}
 
 	input {
 		clip: rect(0 0 0 0);
@@ -102,7 +102,7 @@ export const Checkbox: FC<CheckboxProps> = ({name, checked, onChange, label}) =>
 			<ToogleTrack className="toggle-track">
 				<ToogleIndicator className="toggle-indicator"></ToogleIndicator>
 			</ToogleTrack>
-			{label}
+			<label>{label}</label>
 		</StyledCheckbox>
 	);
 };

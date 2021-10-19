@@ -47,7 +47,7 @@ const StyledApp = styled.div`
 
 export const App: FC = () => {
 	const [imageSrc, setImageSrc] = useState<string | null>(null);
-	const [resolution, setResolution] = useState(10);
+	const [resolution, setResolution] = useState(50);
 	const [opacity, setOpacity] = useState(0);
 	const [contrast, setContrast] = useState(0);
 	const [brightness, setBrightness] = useState(0);

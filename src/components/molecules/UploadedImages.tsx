@@ -24,7 +24,7 @@ const Gallery = styled.div`
 	overflow: hidden auto;
 
 	box-sizing: border-box;
-	padding: clamp(10px, 8vw, 20px);
+	padding: 20px;
 
 	width: 100%;
 	height: 100%;

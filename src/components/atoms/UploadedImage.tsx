@@ -8,6 +8,7 @@ const StyledUploadedImage = styled.img`
 
 	border-radius: 6px;
 	padding: 10px;
+	margin: 0px;
 
 	width: 100%;
 

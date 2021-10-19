@@ -3,8 +3,8 @@ import {getFontRatio} from "./getFontRatio";
 const toPositive = (value: number) => Math.max(1, Math.floor(value));
 
 export const clampDimensions = (width: number | undefined, height: number | undefined, resolution: number) => {
-	const maxWidth = resolution * 10;
-	const maxHeight = resolution * 8;
+	const maxWidth = resolution;
+	const maxHeight = resolution;
 
 	const positiveWidth = toPositive(width ?? maxWidth);
 	const positiveHeight = toPositive(height ?? maxHeight);

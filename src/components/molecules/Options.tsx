@@ -14,7 +14,7 @@ const StyledOptions = styled.form`
 	align-items: center;
 	align-content: space-between;
 	flex-flow: row wrap-reverse;
-	gap: clamp(5px, 4vw, 20px);
+	gap: 5px;
 
 	width: 100%;
 	height: 100%;
@@ -100,23 +100,19 @@ export const Options: FC<OptionsProps> = ({
 			</InputGroup>
 			<SliderInput
 				min={1}
-				max={20}
+				max={100}
 				step={1}
 				value={resolution}
-				onChange={(event) => {
-					liftResolution(parseFloat(event.target.value));
-				}}
+				liftState={liftResolution}
 				name="resolution"
-				label="Resolution"
+				label="Resolution (Width)"
 			/>
 			<SliderInput
 				min={-65}
 				max={65}
 				step={1}
 				value={opacity}
-				onChange={(event) => {
-					liftOpacity(parseInt(event.target.value));
-				}}
+				liftState={liftOpacity}
 				name="opacity"
 				label="Opacity"
 			/>
@@ -126,9 +122,7 @@ export const Options: FC<OptionsProps> = ({
 				max={100}
 				step={1}
 				value={contrast}
-				onChange={(event) => {
-					liftContrast(parseInt(event.target.value));
-				}}
+				liftState={liftContrast}
 				name="contrast"
 				label="Contrast"
 			/>
@@ -138,24 +132,12 @@ export const Options: FC<OptionsProps> = ({
 				max={100}
 				step={1}
 				value={brightness}
-				onChange={(event) => {
-					liftBrightness(parseInt(event.target.value));
-				}}
+				liftState={liftBrightness}
 				name="brightness"
 				label="Brightness"
 			/>
 			{isTouchDevice() && (
-				<SliderInput
-					min={2}
-					max={50}
-					step={1}
-					value={zoom}
-					onChange={(event) => {
-						liftZoom(parseInt(event.target.value));
-					}}
-					name="zoom"
-					label="Zoom"
-				/>
+				<SliderInput min={2} max={50} step={1} value={zoom} liftState={liftZoom} name="zoom" label="Zoom" />
 			)}
 			<InputGroup>
 				<Checkbox
